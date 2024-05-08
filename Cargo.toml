@@ -1,0 +1,45 @@
+[package]
+name = "sso"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Logging dependencies
+tracing = { version = "0.1", features = ["log"] }
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
+
+# Web server dependencies
+tokio = { version = "1", features = ["full"] }
+axum = { version = "0.7", features = ["tracing", "macros"] }
+tower-http = { version = "0.5", features = ["fs", "trace"] }
+tower = "0.4"
+async-trait = "0.1"
+
+# Validation dependencies
+email_address = "0.2"
+
+# Database dependencies
+diesel = { version = "2.1.6", features = ["postgres", "uuid", "chrono"] }
+diesel-async = { version = "0.5.0", features = ["postgres", "deadpool"] }
+diesel_migrations = { version = "2.1.0", features = ["postgres"] }
+
+# Key-value store dependencies
+redis = { version = "0.26", features = ["tokio-rustls-comp"] }
+deadpool-redis = "0.16"
+
+# Password hashing dependencies
+argon2 = "0.5"
+
+# JWT dependencies
+jsonwebtoken = "9"
+
+# Email dependencies
+lettre = { version = "0.11", default-features = false, features = ["hostname", "builder", "pool", "smtp-transport", "tracing", "rustls-tls"] }
+
+# Etc
+dotenv = "0.15"
+chrono = "0.4"
+url = "2"
+thiserror = "1"
+uuid = { version = "1.8", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
