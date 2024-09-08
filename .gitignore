@@ -1,0 +1,8 @@
+/target
+/static
+
+.idea
+.env
+
+/data
+/elm-stuff
